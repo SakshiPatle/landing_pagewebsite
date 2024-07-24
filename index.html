@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Petal Landing Page</title>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        header {
+            background-color: white;
+            color: black;
+            padding: 10px 0;
+            margin-bottom: 0px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 80px;
+        }
+
+        .top-bar img {
+            width: 25px;
+            height: auto;
+        }
+
+        .search-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        nav {
+            text-align: center;
+            background-color: #ffddf4;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 15px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                padding: 0 20px;
+            }
+
+            .search-icon, .social-icons {
+                display: none;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                text-align: left;
+                padding: 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        button {
+            background-color: #ffddf4;
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: none;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        button:hover {
+            color: #ffddf4;
+            background-color: white;
+            font-weight: 700;
+        }
+
+        .content-section {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .content-section img {
+            width: 100%;
+            height: auto;
+            display: block; /* Ensures no space below the image */
+        }
+
+        .heading {
+            align-items: center;
+            text-align: center;
+            padding-top: 40px;
+            font-size: 42px;
+            font-weight: 400;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 80px;
+            gap: 20px; /* Add space between boxes */
+        }
+
+        .box {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+        }
+
+        .button-shop {
+            text-align: center;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .button-shop button {
+            background-color: #CD7F32;
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: none;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .button-shop button:hover {
+            color: #CD7F32;
+            background-color: white;
+        }
+
+        .button-shops {
+            text-align: center;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .button-shops button {
+            background-color: #F33A6A;
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: none;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .button-shops button:hover {
+            color: #F33A6A;
+            background-color: white;
+        }
+
+        .button-shopn {
+            text-align: center;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .button-shopn button{
+            background-color: #C5ADED;
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: none;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .button-shopn button:hover {
+            color: #C5ADED;
+            background-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .search-icon, .social-icons {
+                display: none;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .box-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .box {
+                margin-bottom: 20px;
+            }
+
+            .button-shop, .button-shops {
+                padding-top: 10px;
+            }
+
+            .wedding-section img{
+            width: 100%;
+            height: auto;
+        }
+
+        .background-image {
+  width: 100%;
+  height: auto;
+        }
+
+        .image-with-overlay {
+  position: relative;
+  padding-top: 30px;
+        }
+
+        .slide {
+  padding: 20px;
+  color: black;
+  font-size: 14px;
+  display: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+.text-slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+  color: white;
+  padding-top: 80px;
+}
+ 
+        }
+
+        .wedding-section {
+            text-align: center;
+            align-items: center;
+            padding-top: 50px;
+        }
+
+        .new-box-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 80px;
+            gap: 20px;
+        }
+
+        .new-box {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .new-box img {
+            width: 15%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .new-box-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .new-box {
+                margin-bottom: 20px;
+            }
+        }
+
+        .new-box h3{
+            
+            font-size: 18px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .new-box p{
+            font-size: 14px;
+        }
+
+        .image-with-overlay {
+  position: relative;
+  padding-top: 30px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.background-image {
+  width: 60%;
+  height: auto;
+ 
+}
+
+.text-slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  text-align: center;
+  color: white;
+  padding-top: 50px;
+}
+
+.slide {
+  padding: 20px;
+  color: black;
+  font-size: 18px;
+  display: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+.slide.active {
+  display: block;
+}
+
+.navigation-dots {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+ 
+}
+
+.dot.active {
+  background-color: #717171;
+}
+
+.slide span{
+  color: #FDB92B;  
+  font-weight: 500;
+ 
+}
+
+
+.footer {
+  background-color: #ffddf4;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+}
+
+.footer .icons {
+  margin-bottom: 10px;
+}
+
+.footer .icons i {
+  color: #F33A6A;
+  margin: 0 10px;
+  font-size: 20px;
+  cursor: pointer;
+  padding-bottom: 20px;
+}
+
+.footer nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.footer nav ul li {
+  margin: 0 15px;
+}
+
+.footer nav ul li a {
+  color: #F33A6A;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer p {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.main-icon img{
+    width: 150px;
+    height: auto;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="logo">
+                <img src="Rose_logo.png" alt="Logo">
+            </div>
+            <div class="social-icons">
+                <button type="button">Sign Up</button>
+            </div>
+        </div>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Collection</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <section class="content-section">
+            <img src="banner_img.png" alt="Banner Image">
+        </section>
+    </header>
+
+    <div class="heading"><i><span style="color: #F33A6A; font-size: 50px;">Shop</span></i> Pink & Purple</div>
+
+    <div class="box-container">
+        <div class="box">
+            <img src="pink_cloth.png" alt="Product 1">
+        </div>
+        <div class="box">
+            <img src="purple_cloth.png" alt="Product 2">
+        </div>
+        <div class="box">
+            <img src="darkpink_cloth.png" alt="Product 3">
+        </div>
+        <div class="box">
+            <img src="lightpink_cloth.png" alt="Product 4">
+        </div>
+    </div>
+
+    <div class="button-shops">
+        <button type="button">Shop Now</button>
+    </div>
+
+  
+
+    <section class="wedding-section">
+        <img src="Weddingcollection.png" alt="Banner Image">
+    </section>
+
+    <div class="heading"><i><span style="color: #C5ADED; font-size: 50px;">Shop</span> </i>Wedding Dress</div>
+
+    <div class="box-container">
+        <div class="box">
+            <img src="weddingdress.png" alt="Product 1">
+        </div>
+        <div class="box">
+            <img src="wedding.png" alt="Product 2">
+        </div>
+        <div class="box">
+            <img src="weddinggowns.png" alt="Product 3">
+        </div>
+        <div class="box">
+            <img src="weddingwhite.png" alt="Product 4">
+        </div>
+    </div>
+
+    <div class="button-shopn">
+        <button type="button">Shop Now</button>
+    </div>
+
+    <div class="heading"><i><span style="color: #95BF39; font-size: 50px;">Services</span> </i>we provide</div>
+
+    <div class="new-box-container">
+        <div class="new-box">
+            <img src="develivery.png" alt="Image 1">
+            <h3 style="color: #CD7F32;">Doorstep Delivery</h3>
+            <p>We provide item directly in<br> your doorstep.</p>
+        </div>
+        <div class="new-box">
+            <img src="cod.png" alt="Image 2">
+            <h3 style="color: #C5ADED;">Cash On Delivery</h3>
+            <p>You can also pay when we <br>deliver the item.</p>
+        </div>
+        <div class="new-box">
+            <img src="exchange.png" alt="Image 3">
+            <h3 style="color: #F33A6A;">Easy Exchange</h3>
+            <p>We have easy exchange and <br>return policy.</p>
+        </div>
+        <div class="new-box">
+            <img src="upi.png" alt="Image 4">
+            <h3 style="color: #95BF39;">UPI Payment</h3>
+            <p>We provide safe and secure<br> UPI payment.</p>
+        </div>
+    </div>
+
+    <div class="heading"><i><span style="color: #6DB5E7; font-size: 50px;">What</span> </i>our client says?</div>
+<br>
+    <div class="image-with-overlay">
+        <div class="text-slider" id="textSlider">
+          <div class="slide">"Love the variety of clothes i ordered and the wedding planning feature is a lifesaver! Saves me so much time!"<br><span>Sarah Khan, 32</span></div>
+          <div class="slide"> "I ordered dress which is so trendy and classic and my family loves it too!"<br><span>John D'Souza, 27</span></div>
+          <div class="slide"> "This really helps me stay on track with trends. Love your packing" <br><span>Amit Rana, 36</span></div>
+          <!-- Add more slides as needed -->
+        </div>
+        <img src="Feedback1.png" alt="Static Image" class="background-image">
+      </div>
+
+      <div class="navigation-dots" id="navigationDots"></div>
+
+
+      <div class="footer">
+        <div class="main-icon">
+            <img src="footerlogo.png">
+        </div>
+        <div class="icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+        </div>
+        <p>&copy; 2024 Rose Petal. All rights reserved. Developed by Sakshi Patle.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+
+            hamburger.addEventListener('click', function () {
+                navMenu.classList.toggle('show');
+            });
+        });
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+      const textSlider = document.getElementById('textSlider');
+      const navigationDots = document.getElementById('navigationDots');
+      const slides = textSlider.getElementsByClassName('slide');
+      let currentIndex = 0;
+      let startX;
+
+      function nextSlide(index) {
+        slides[currentIndex].classList.remove('active');
+        currentIndex = index;
+        slides[currentIndex].classList.add('active');
+        updateDots();
+      }
+
+      function updateDots() {
+        const dots = navigationDots.getElementsByClassName('dot');
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].classList.remove('active');
+        }
+        dots[currentIndex].classList.add('active');
+      }
+
+      function goToNextSlide() {
+        const nextIndex = (currentIndex + 1) % slides.length;
+        nextSlide(nextIndex);
+      }
+
+      function goToPrevSlide() {
+        const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+        nextSlide(prevIndex);
+      }
+
+      // Auto slide every 3 seconds (adjust as needed)
+      setInterval(goToNextSlide, 5000);
+
+      // Create dots dynamically based on the number of slides
+      for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => nextSlide(i));
+        navigationDots.appendChild(dot);
+      }
+
+      // Set initial active dot
+      updateDots();
+
+      // Swipe functionality
+      function handleSwipeStart(event) {
+        startX = event.touches[0].clientX;
+      }
+
+      function handleSwipeEnd(event) {
+        const endX = event.changedTouches[0].clientX;
+        if (startX - endX > 50) {
+          goToNextSlide();
+        } else if (endX - startX > 50) {
+          goToPrevSlide();
+        }
+      }
+
+      // Add touch event listeners
+      textSlider.addEventListener('touchstart', handleSwipeStart);
+      textSlider.addEventListener('touchend', handleSwipeEnd);
+    });
+    </script>
+</body>
+</html>
